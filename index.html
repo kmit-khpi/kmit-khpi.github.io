@@ -48,6 +48,15 @@
   .note { background: var(--accent-bg); border-radius: 12px; padding: 12px 16px; margin-top: 12px; font-size: 15px; }
   .rules { padding-left: 20px; margin: 0; }
   .rules li { margin-bottom: 6px; }
+  .arch { display:flex; align-items:stretch; gap:8px; margin-top:14px; }
+  .arch .node { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-size:14px; flex:1; }
+  .arch .node b { display:block; font-size:15px; }
+  .arch .java { flex:1.8; background:var(--accent-bg); border:2px solid var(--accent); }
+  .arch .java ul { margin:6px 0 0; padding-left:18px; }
+  .arch .dark { background:var(--ink); color:#F3F1EA; border-color:var(--ink); }
+  .arch .col { display:flex; flex-direction:column; gap:8px; flex:1.2; }
+  .arch .arr { align-self:center; color:var(--muted); font-size:20px; }
+  @media (max-width:720px) { .arch { flex-direction:column; } .arch .arr { transform:rotate(90deg); } }
   footer { color: var(--muted); font-size: 14px; padding: 32px 0 40px; border-top: 1px solid var(--line); margin-top: 32px; }
   footer a { color: var(--blue); }
 </style>
@@ -117,6 +126,26 @@
     <tr><td><b>6. Telegram-боти</b></td><td>Бот з відповідями на 10 найчастіших запитань першокурсника</td><td><a href="https://t.me/BotFather" target="_blank" rel="noopener">@BotFather</a>, <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>, <a href="https://script.google.com/" target="_blank" rel="noopener">Google Apps Script</a></td></tr>
     <tr><td><b>7. Press AI</b></td><td>ШІ-асистент курсу «Обробка металів тиском»: підказками веде до рішення, відповідає з матеріалів курсу, допомагає діагностувати дефекти. Ролі: база знань, тестування, інтерфейс (React), код (Java). На основі проєкту — курсові й дипломні роботи, участь у грантових проєктах і публікаціях</td><td><a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noopener">AWS, Amazon Bedrock</a> — доступ через керівника</td></tr>
   </table>
+  </div>
+</section>
+
+<section id="pressai">
+  <h2><span class="n">★</span>Press AI: як влаштовано</h2>
+  <p class="hint">Командний проєкт напряму 7 — ШІ-асистент курсу «Обробка металів тиском». <b>Бекенд написано на Java</b>: студенти, які долучаться, працюватимуть зі справжнім Java-проєктом — Spring Boot, функції-інструменти для ШІ, тести. Локально все запускається без хмари, з моделлю Ollama.</p>
+  <div class="arch" role="img" aria-label="Схема Press AI: студент і викладач працюють через React-інтерфейс, запит іде через API Gateway до бекенду на Java (Spring Boot, Spring AI) в AWS Lambda, який звертається до Claude Haiku 4.5 в AWS Bedrock і до бази знань Knowledge Base на S3 Vectors">
+    <div class="node"><b>Студент / викладач</b>питання в чаті, матеріали курсу</div>
+    <div class="arr">→</div>
+    <div class="node"><b>Інтерфейс</b>React: чат і адмін-панель</div>
+    <div class="arr">→</div>
+    <div class="node"><b>API Gateway</b>ключі доступу</div>
+    <div class="arr">→</div>
+    <div class="node java"><b>Бекенд на Java</b>Spring Boot · Java 21 · Spring AI · AWS Lambda
+      <ul><li>RouterService: репетитор / діагностика дефектів</li><li>@Tool пошук у матеріалах курсу</li><li>@Tool перевірка інженерних розрахунків</li></ul></div>
+    <div class="arr">→</div>
+    <div class="col">
+      <div class="node dark"><b>Claude Haiku 4.5</b>AWS Bedrock — формує відповідь</div>
+      <div class="node dark"><b>База знань</b>Knowledge Base + S3 Vectors</div>
+    </div>
   </div>
 </section>
 
