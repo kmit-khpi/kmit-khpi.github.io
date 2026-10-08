@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Відео для ШІ-напряму КМІТ</title>
+<meta name="description" content="Добірка відео з курсу «Креативні технології в інженерії»: мовні моделі, агенти, локальні моделі, API, токени, Java + ШІ, безпека, промислові приклади.">
+<style>
+  :root {
+    --bg: #F7F5F0; --card: #FFFFFF; --ink: #16202E; --muted: #4F5866; --line: #E3DED3;
+    --accent: #C25E00; --accent-bg: #FCEBD9; --blue: #2457C5; --blue-bg: #E6EEFB;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow-x: hidden; }
+  a { color: var(--blue); }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 28px 0 16px; }
+  .back { display: inline-block; font-size: 14px; text-decoration: none; color: var(--muted); margin-bottom: 14px; }
+  .back:hover { color: var(--accent); }
+  .tag { display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-bg); padding: 3px 10px; border-radius: 999px; }
+  h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 12px 0 8px; }
+  .sub { color: var(--muted); margin: 0; }
+  .search { margin-top: 18px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .search input { flex: 1 1 260px; min-width: 0; font: inherit; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); }
+  .search input:focus { outline: 2px solid var(--blue); outline-offset: 1px; border-color: var(--blue); }
+  .search output { font-size: 14px; color: var(--muted); }
+  nav { position: sticky; top: 0; z-index: 2; background: rgba(247,245,240,.95); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; scrollbar-width: none; }
+  nav .wrap::-webkit-scrollbar { display: none; }
+  nav a { flex: none; font-size: 14px; color: var(--ink); text-decoration: none; padding: 6px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); }
+  nav a:hover { border-color: var(--accent); }
+  nav a span { color: var(--accent); font-weight: 600; margin-left: 2px; }
+  section { padding: 28px 0 8px; scroll-margin-top: 56px; }
+  h2 { font-size: 24px; line-height: 1.25; margin: 0 0 4px; }
+  h2 a { color: inherit; text-decoration: none; }
+  h2 a:hover { color: var(--accent); }
+  .cnt { display: inline-block; vertical-align: middle; font-size: 14px; font-weight: 700; color: var(--accent); background: var(--accent-bg); border-radius: 999px; padding: 1px 9px; margin-left: 4px; }
+  .hint { color: var(--muted); margin: 0 0 16px; }
+  .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .15s, box-shadow .15s; }
+  .card:hover { border-color: var(--accent); box-shadow: 0 4px 14px rgba(22,32,46,.07); }
+  .thumb { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--line); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; }
+  .meta { display: flex; gap: 6px; flex-wrap: wrap; }
+  .lang, .les { font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; }
+  .lang { color: var(--blue); background: var(--blue-bg); }
+  .lang.uk { color: var(--accent); background: var(--accent-bg); }
+  .les { color: var(--muted); border: 1px solid var(--line); }
+  h3 { font-size: 16px; line-height: 1.35; margin: 4px 0 0; overflow-wrap: anywhere; }
+  h3 a { color: var(--ink); text-decoration: none; }
+  h3 a:hover { color: var(--blue); text-decoration: underline; }
+  .ch { margin: 0; font-size: 14px; color: var(--muted); }
+  .note { margin: 4px 0 0; font-size: 14.5px; }
+  .empty { display: none; color: var(--muted); padding: 24px 0; }
+  footer { margin-top: 32px; padding: 20px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } h2 { font-size: 21px; } }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="back" href="https://kmit-khpi.github.io/">← Усі посилання</a><br>
+  <span class="tag">КМІТ · НТУ «ХПІ» · 60 відео</span>
+  <h1>Відео для ШІ-напряму КМІТ</h1>
+  <p class="sub">Добірка з курсу «Креативні технології в інженерії»</p>
+  <div class="search">
+    <input id="q" type="search" placeholder="Пошук: назва, канал, тема…" aria-label="Пошук відео" autocomplete="off">
+    <output id="found" for="q"></output>
+  </div>
+</header>
+<nav aria-label="Теми"><div class="wrap">
+  <a href="#osnovy">Як влаштовані мовні моделі <span>4</span></a>
+  <a href="#agenty">Агенти: автономія і межі делегування <span>5</span></a>
+  <a href="#lupinh">Агентний цикл над кодом і тести <span>12</span></a>
+  <a href="#lokalni">Локальні моделі <span>12</span></a>
+  <a href="#api">API, REST, JSON і Postman <span>7</span></a>
+  <a href="#tokeny">Токени й контекстне вікно <span>4</span></a>
+  <a href="#java">Java + ШІ <span>4</span></a>
+  <a href="#bezpeka">Безпека: промпт-ін’єкції та ключі <span>3</span></a>
+  <a href="#promyslovist">ШІ в промисловості та інженерії <span>9</span></a>
+</div></nav>
+<main class="wrap">
+  <section id="osnovy">
+    <h2><a href="#osnovy">Як влаштовані мовні моделі</a> <span class="cnt">4</span></h2>
+    <p class="hint">Ваги, генерація тексту, відкриті й закриті моделі — база для решти тем.</p>
+    <ul class="grid">
+      <li class="card" data-s="large language models explained briefly 3blue1brown наочно про те, що таке ваги мовної моделі (0:00–3:15); є українські субтитри. заняття 8 як влаштовані мовні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=LPZh9BOjkQs" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/LPZh9BOjkQs/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Large Language Models explained briefly"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=LPZh9BOjkQs" target="_blank" rel="noopener">Large Language Models explained briefly</a></h3>
+          <p class="ch">3Blue1Brown</p>
+          <p class="note">Наочно про те, що таке ваги мовної моделі (0:00–3:15); є українські субтитри.</p>
+        </div>
+      </li>
+      <li class="card" data-s="мовні моделі та генерація тексту - максим жолобак pre post українською про мовні моделі та генерацію тексту; додаткове відео, можна дивитися вибірково. заняття 11 як влаштовані мовні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=mqv-fuE4kos" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/mqv-fuE4kos/hqdefault.jpg" loading="lazy" width="480" height="360" alt="мовні моделі та генерація тексту - Максим Жолобак"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 11</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=mqv-fuE4kos" target="_blank" rel="noopener">мовні моделі та генерація тексту - Максим Жолобак</a></h3>
+          <p class="ch">pre post</p>
+          <p class="note">Українською про мовні моделі та генерацію тексту; додаткове відео, можна дивитися вибірково.</p>
+        </div>
+      </li>
+      <li class="card" data-s="як ші розуміє мову і навіщо україні своя llm | шілософія економічна правда українською: навіщо україні національна модель (23:47) і скільки коштує модель (53:46). заняття 11 як влаштовані мовні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=pJsK-mQgXB8&amp;t=1427s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/pJsK-mQgXB8/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Як ШІ розуміє мову і навіщо Україні своя LLM | ШІлософія"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 11</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=pJsK-mQgXB8&amp;t=1427s" target="_blank" rel="noopener">Як ШІ розуміє мову і навіщо Україні своя LLM | ШІлософія</a></h3>
+          <p class="ch">Економічна правда</p>
+          <p class="note">Українською: навіщо Україні національна модель (23:47) і скільки коштує модель (53:46).</p>
+        </div>
+      </li>
+      <li class="card" data-s="open source vs closed ai: llms, agents &amp; the ai stack explained ibm technology відкриті й закриті моделі та стек ші (фрагмент 4:05–5:19). заняття 8 як влаштовані мовні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=_QfxGZGITGw&amp;t=245s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/_QfxGZGITGw/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Open Source vs Closed AI: LLMs, Agents &amp; the AI Stack Explained"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=_QfxGZGITGw&amp;t=245s" target="_blank" rel="noopener">Open Source vs Closed AI: LLMs, Agents &amp; the AI Stack Explained</a></h3>
+          <p class="ch">IBM Technology</p>
+          <p class="note">Відкриті й закриті моделі та стек ШІ (фрагмент 4:05–5:19).</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="agenty">
+    <h2><a href="#agenty">Агенти: автономія і межі делегування</a> <span class="cnt">5</span></h2>
+    <p class="hint">З заняття 7 «Агенти»: коли агентові можна довірити дію, а коли потрібна людина.</p>
+    <ul class="grid">
+      <li class="card" data-s="andrej karpathy: software is changing (again) y combinator «повзунок автономії»: рівень самостійності обирають за тим, як швидко й надійно можна перевірити результат (23:40–29:06). заняття 7 агенти: автономія і межі делегування">
+        <a class="thumb" href="https://www.youtube.com/watch?v=LCEmiRjPEtQ&amp;t=1420s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/LCEmiRjPEtQ/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Andrej Karpathy: Software Is Changing (Again)"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ&amp;t=1420s" target="_blank" rel="noopener">Andrej Karpathy: Software Is Changing (Again)</a></h3>
+          <p class="ch">Y Combinator</p>
+          <p class="note">«Повзунок автономії»: рівень самостійності обирають за тим, як швидко й надійно можна перевірити результат (23:40–29:06).</p>
+        </div>
+      </li>
+      <li class="card" data-s="what are ai agents? ibm technology означення агента й цикл react, пояснені на дошці (4:30–9:30). заняття 7 агенти: автономія і межі делегування">
+        <a class="thumb" href="https://www.youtube.com/watch?v=F8NKVhkZZWI&amp;t=270s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/F8NKVhkZZWI/hqdefault.jpg" loading="lazy" width="480" height="360" alt="What are AI Agents?"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=F8NKVhkZZWI&amp;t=270s" target="_blank" rel="noopener">What are AI Agents?</a></h3>
+          <p class="ch">IBM Technology</p>
+          <p class="note">Означення агента й цикл ReAct, пояснені на дошці (4:30–9:30).</p>
+        </div>
+      </li>
+      <li class="card" data-s="ші-агенти: новий рівень автоматизації вашого бізнесу google знання українською: чим агент відрізняється від чат-бота (1:53–5:41). заняття 7 агенти: автономія і межі делегування">
+        <a class="thumb" href="https://www.youtube.com/watch?v=X8rz4hOWLNg&amp;t=113s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/X8rz4hOWLNg/hqdefault.jpg" loading="lazy" width="480" height="360" alt="ШІ-агенти: новий рівень автоматизації вашого бізнесу"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=X8rz4hOWLNg&amp;t=113s" target="_blank" rel="noopener">ШІ-агенти: новий рівень автоматизації вашого бізнесу</a></h3>
+          <p class="ch">Google Знання</p>
+          <p class="note">Українською: чим агент відрізняється від чат-бота (1:53–5:41).</p>
+        </div>
+      </li>
+      <li class="card" data-s="how we build effective agents: barry zhang, anthropic ai engineer коли не варто будувати агента: складність, цінність, ціна помилки та її виявлення (2:30–7:30). заняття 7 агенти: автономія і межі делегування">
+        <a class="thumb" href="https://www.youtube.com/watch?v=D7_ipDqhtwk&amp;t=150s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/D7_ipDqhtwk/hqdefault.jpg" loading="lazy" width="480" height="360" alt="How We Build Effective Agents: Barry Zhang, Anthropic"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=D7_ipDqhtwk&amp;t=150s" target="_blank" rel="noopener">How We Build Effective Agents: Barry Zhang, Anthropic</a></h3>
+          <p class="ch">AI Engineer</p>
+          <p class="note">Коли НЕ варто будувати агента: складність, цінність, ціна помилки та її виявлення (2:30–7:30).</p>
+        </div>
+      </li>
+      <li class="card" data-s="claude ran a business in our office anthropic експеримент project vend: агент керував торговельним пунктом — давав знижки на прохання й продавав у збиток (0:00–6:10). заняття 7 агенти: автономія і межі делегування">
+        <a class="thumb" href="https://www.youtube.com/watch?v=5KTHvKCrQ00" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/5KTHvKCrQ00/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Claude ran a business in our office"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=5KTHvKCrQ00" target="_blank" rel="noopener">Claude ran a business in our office</a></h3>
+          <p class="ch">Anthropic</p>
+          <p class="note">Експеримент Project Vend: агент керував торговельним пунктом — давав знижки на прохання й продавав у збиток (0:00–6:10).</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="lupinh">
+    <h2><a href="#lupinh">Агентний цикл над кодом і тести</a> <span class="cnt">12</span></h2>
+    <p class="hint">З заняття 7 «Лупінг»: агент править код, запускає тести й повторює спроби, доки перевірки не стануть зеленими.</p>
+    <ul class="grid">
+      <li class="card" data-s="introducing claude code anthropic цикл над кодом у промисловому інструменті (0:00–3:54). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=AJpK3YTTKZ4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/AJpK3YTTKZ4/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Introducing Claude Code"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=AJpK3YTTKZ4" target="_blank" rel="noopener">Introducing Claude Code</a></h3>
+          <p class="ch">Anthropic</p>
+          <p class="note">Цикл над кодом у промисловому інструменті (0:00–3:54).</p>
+        </div>
+      </li>
+      <li class="card" data-s="claude code — повний огляд від а до я | все що потрібно знати kodarik українською: огляд claude code — claude.md (32:59), хуки (45:18), підагенти (51:44), /loop і дозволи (57:21). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=OALQT1rfKsk&amp;t=1979s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/OALQT1rfKsk/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Claude Code — повний огляд від А до Я | Все що потрібно знати"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=OALQT1rfKsk&amp;t=1979s" target="_blank" rel="noopener">Claude Code — повний огляд від А до Я | Все що потрібно знати</a></h3>
+          <p class="ch">KODARIK</p>
+          <p class="note">Українською: огляд Claude Code — CLAUDE.md (32:59), хуки (45:18), підагенти (51:44), /loop і дозволи (57:21).</p>
+        </div>
+      </li>
+      <li class="card" data-s="спробував вайбкодинг — зайшло? cursor — шляпа чи порятунок. трохи про тести і коміти. сергій бабіч та дивовижний світ веброзробки українською: переваги й ризики коду, написаного з ші, а також тести й коміти (29 хв). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=tGzJI1tpkPQ" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/tGzJI1tpkPQ/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Спробував вайбкодинг — зайшло? Cursor — шляпа чи порятунок. Трохи про тести і коміти."></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=tGzJI1tpkPQ" target="_blank" rel="noopener">Спробував вайбкодинг — зайшло? Cursor — шляпа чи порятунок. Трохи про тести і коміти.</a></h3>
+          <p class="ch">Сергій Бабіч та Дивовижний світ веброзробки</p>
+          <p class="note">Українською: переваги й ризики коду, написаного з ШІ, а також тести й коміти (29 хв).</p>
+        </div>
+      </li>
+      <li class="card" data-s="unit тести. основи тестування коду для початківців. maksym rudnyi українською: навіщо автоматичні тести (2:48–8:55) і які тести вважають добрими (8:55–19:48). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=5qVaCZVvTGY&amp;t=168s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/5qVaCZVvTGY/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Unit тести. Основи тестування коду для початківців."></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=5qVaCZVvTGY&amp;t=168s" target="_blank" rel="noopener">Unit тести. Основи тестування коду для початківців.</a></h3>
+          <p class="ch">Maksym Rudnyi</p>
+          <p class="note">Українською: навіщо автоматичні тести (2:48–8:55) і які тести вважають добрими (8:55–19:48).</p>
+        </div>
+      </li>
+      <li class="card" data-s="codex агент для всього! покрокова інструкція igor matrofailo українською: агент openai codex крок за кроком. заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=M4KpsaveKpM" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/M4KpsaveKpM/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Codex агент для всього! Покрокова інструкція"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=M4KpsaveKpM" target="_blank" rel="noopener">Codex агент для всього! Покрокова інструкція</a></h3>
+          <p class="ch">Igor Matrofailo</p>
+          <p class="note">Українською: агент OpenAI Codex крок за кроком.</p>
+        </div>
+      </li>
+      <li class="card" data-s="what is al &quot;reward hacking&quot;—and why do we worry about it? anthropic «reward hacking»: від підгонки рішення під тест — до неузгодженості моделі (0:42–5:21). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=lvMMZLYoDr4&amp;t=42s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/lvMMZLYoDr4/hqdefault.jpg" loading="lazy" width="480" height="360" alt="What is Al &quot;reward hacking&quot;—and why do we worry about it?"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=lvMMZLYoDr4&amp;t=42s" target="_blank" rel="noopener">What is Al &quot;reward hacking&quot;—and why do we worry about it?</a></h3>
+          <p class="ch">Anthropic</p>
+          <p class="note">«Reward hacking»: від підгонки рішення під тест — до неузгодженості моделі (0:42–5:21).</p>
+        </div>
+      </li>
+      <li class="card" data-s="swe-agent: a deep dive ofir press повна траєкторія агента: відтворення дефекту, правка, відмова лінтера, повтор, тести swe-bench (1:00–11:00). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=RJ6NN8Y-xok&amp;t=60s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/RJ6NN8Y-xok/hqdefault.jpg" loading="lazy" width="480" height="360" alt="SWE-agent: A deep dive"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=RJ6NN8Y-xok&amp;t=60s" target="_blank" rel="noopener">SWE-agent: A deep dive</a></h3>
+          <p class="ch">Ofir Press</p>
+          <p class="note">Повна траєкторія агента: відтворення дефекту, правка, відмова лінтера, повтор, тести SWE-bench (1:00–11:00).</p>
+        </div>
+      </li>
+      <li class="card" data-s="the github copilot coding agent *new* github задача → запит на злиття → людина переглядає до запуску ci (0:00–2:03). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=6xHZJVnKkSs" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/6xHZJVnKkSs/hqdefault.jpg" loading="lazy" width="480" height="360" alt="The GitHub Copilot coding agent *NEW*"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=6xHZJVnKkSs" target="_blank" rel="noopener">The GitHub Copilot coding agent *NEW*</a></h3>
+          <p class="ch">GitHub</p>
+          <p class="note">Задача → запит на злиття → людина переглядає до запуску CI (0:00–2:03).</p>
+        </div>
+      </li>
+      <li class="card" data-s="tdd, ai agents and coding with kent beck the pragmatic engineer автор tdd кент бек про тести як засіб керування агентом (50:05–54:26). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=aSXaxOdVtAQ&amp;t=3005s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/aSXaxOdVtAQ/hqdefault.jpg" loading="lazy" width="480" height="360" alt="TDD, AI agents and coding with Kent Beck"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=aSXaxOdVtAQ&amp;t=3005s" target="_blank" rel="noopener">TDD, AI agents and coding with Kent Beck</a></h3>
+          <p class="ch">The Pragmatic Engineer</p>
+          <p class="note">Автор TDD Кент Бек про тести як засіб керування агентом (50:05–54:26).</p>
+        </div>
+      </li>
+      <li class="card" data-s="claude code modernizes a legacy cobol codebase anthropic міграція застарілого коду на cobol, де критерій успіху — набір тестів (0:00–4:15). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=OwMu0pyYZBc" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/OwMu0pyYZBc/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Claude Code modernizes a legacy COBOL codebase"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=OwMu0pyYZBc" target="_blank" rel="noopener">Claude Code modernizes a legacy COBOL codebase</a></h3>
+          <p class="ch">Anthropic</p>
+          <p class="note">Міграція застарілого коду на COBOL, де критерій успіху — набір тестів (0:00–4:15).</p>
+        </div>
+      </li>
+      <li class="card" data-s="run long tasks in codex using goals openai промисловий варіант «циклу до мети»: довгі задачі в codex (0:00–1:39). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=rgh0hMYPcd0" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/rgh0hMYPcd0/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Run long tasks in Codex using goals"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=rgh0hMYPcd0" target="_blank" rel="noopener">Run long tasks in Codex using goals</a></h3>
+          <p class="ch">OpenAI</p>
+          <p class="note">Промисловий варіант «циклу до мети»: довгі задачі в Codex (0:00–1:39).</p>
+        </div>
+      </li>
+      <li class="card" data-s="the ralph wiggum loop from 1st principles (by the creator of ralph) geoffrey huntley першоджерело терміна «ralph wiggum loop»: «наша робота тепер — інженерія зворотного тиску» (≈19:00–20:30). заняття 7 агентний цикл над кодом і тести">
+        <a class="thumb" href="https://www.youtube.com/watch?v=4Nna09dG_c0&amp;t=1140s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/4Nna09dG_c0/hqdefault.jpg" loading="lazy" width="480" height="360" alt="The Ralph Wiggum Loop from 1st principles (by the creator of Ralph)"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=4Nna09dG_c0&amp;t=1140s" target="_blank" rel="noopener">The Ralph Wiggum Loop from 1st principles (by the creator of Ralph)</a></h3>
+          <p class="ch">Geoffrey Huntley</p>
+          <p class="note">Першоджерело терміна «Ralph Wiggum loop»: «наша робота тепер — інженерія зворотного тиску» (≈19:00–20:30).</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="lokalni">
+    <h2><a href="#lokalni">Локальні моделі</a> <span class="cnt">12</span></h2>
+    <p class="hint">З заняття 8: мовна модель на власному комп’ютері чи телефоні — без інтернету й лімітів.</p>
+    <ul class="grid">
+      <li class="card" data-s="ші без інтернету та лімітів на вашому комп&#x27;ютері: gemma 4 + ollama цифромова українською: gemma 4 + ollama на власному комп’ютері (≈0:30–5:00). заняття 8, 13 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=EiZeIO-xQQo&amp;t=30s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/EiZeIO-xQQo/hqdefault.jpg" loading="lazy" width="480" height="360" alt="ШІ без інтернету та лімітів на вашому комп&#x27;ютері: Gemma 4 + Ollama"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 8, 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=EiZeIO-xQQo&amp;t=30s" target="_blank" rel="noopener">ШІ без інтернету та лімітів на вашому комп&#x27;ютері: Gemma 4 + Ollama</a></h3>
+          <p class="ch">ЦИФРОМОВА</p>
+          <p class="note">Українською: Gemma 4 + Ollama на власному комп’ютері (≈0:30–5:00).</p>
+        </div>
+      </li>
+      <li class="card" data-s="локальні llm на прикладі gemma 4: huggingface + ollama + claud code орлов вигорів з аі українською: чому зростає популярність локальних моделей; gemma 4, ліцензія, huggingface (0:00–3:37). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=-NMhUlhAD1k" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/-NMhUlhAD1k/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Локальні LLM на прикладі Gemma 4: HuggingFace + Ollama + Claud Code"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=-NMhUlhAD1k" target="_blank" rel="noopener">Локальні LLM на прикладі Gemma 4: HuggingFace + Ollama + Claud Code</a></h3>
+          <p class="ch">Орлов вигорів з АІ</p>
+          <p class="note">Українською: чому зростає популярність локальних моделей; Gemma 4, ліцензія, HuggingFace (0:00–3:37).</p>
+        </div>
+      </li>
+      <li class="card" data-s="локальний запуск llm моделей | running local llms with ollama &amp; llama.cpp teo ai українською: приватність даних у хмарному чаті (0:37–2:22) і запуск моделей через ollama та llama.cpp. заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=R8oxTRPzdKs&amp;t=37s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/R8oxTRPzdKs/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Локальний запуск LLM моделей | Running Local LLMs with Ollama &amp; Llama.cpp"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=R8oxTRPzdKs&amp;t=37s" target="_blank" rel="noopener">Локальний запуск LLM моделей | Running Local LLMs with Ollama &amp; Llama.cpp</a></h3>
+          <p class="ch">TEO AI</p>
+          <p class="note">Українською: приватність даних у хмарному чаті (0:37–2:22) і запуск моделей через Ollama та llama.cpp.</p>
+        </div>
+      </li>
+      <li class="card" data-s="робота з локальними моделями ai: повний гайд programming mentor ua українською: повний гайд; з 21:22 — процесор проти відеокарти. заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=WcIghZD9QhI&amp;t=1282s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/WcIghZD9QhI/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Робота з локальними моделями AI: Повний гайд"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=WcIghZD9QhI&amp;t=1282s" target="_blank" rel="noopener">Робота з локальними моделями AI: Повний гайд</a></h3>
+          <p class="ch">programming mentor ua</p>
+          <p class="note">Українською: повний гайд; з 21:22 — процесор проти відеокарти.</p>
+        </div>
+      </li>
+      <li class="card" data-s="deepseek r1: відкрита llm відправила chatgpt o1 у нокаут igor matrofailo українською: відкрита модель deepseek r1 (11 хв). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=HhZVJh-URG0" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/HhZVJh-URG0/hqdefault.jpg" loading="lazy" width="480" height="360" alt="DeepSeek R1: відкрита LLM відправила ChatGPT o1 у нокаут"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=HhZVJh-URG0" target="_blank" rel="noopener">DeepSeek R1: відкрита LLM відправила ChatGPT o1 у нокаут</a></h3>
+          <p class="ch">Igor Matrofailo</p>
+          <p class="note">Українською: відкрита модель DeepSeek R1 (11 хв).</p>
+        </div>
+      </li>
+      <li class="card" data-s="what is ollama? running local llms made simple ibm technology що таке ollama і як вона спрощує запуск моделей локально (2:30–5:40). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=5RIOQuHOihY&amp;t=150s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/5RIOQuHOihY/hqdefault.jpg" loading="lazy" width="480" height="360" alt="What is Ollama? Running Local LLMs Made Simple"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=5RIOQuHOihY&amp;t=150s" target="_blank" rel="noopener">What is Ollama? Running Local LLMs Made Simple</a></h3>
+          <p class="ch">IBM Technology</p>
+          <p class="note">Що таке Ollama і як вона спрощує запуск моделей локально (2:30–5:40).</p>
+        </div>
+      </li>
+      <li class="card" data-s="what is llama.cpp? the llm inference engine for local ai ibm technology llama.cpp, формат gguf і квантизація q4_k_m (4:06–6:35). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=P8m5eHAyrFM&amp;t=246s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/P8m5eHAyrFM/hqdefault.jpg" loading="lazy" width="480" height="360" alt="What Is Llama.cpp? The LLM Inference Engine for Local AI"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=P8m5eHAyrFM&amp;t=246s" target="_blank" rel="noopener">What Is Llama.cpp? The LLM Inference Engine for Local AI</a></h3>
+          <p class="ch">IBM Technology</p>
+          <p class="note">Llama.cpp, формат GGUF і квантизація Q4_K_M (4:06–6:35).</p>
+        </div>
+      </li>
+      <li class="card" data-s="lm studio: run local llms in 7 minutes developers digest швидкий старт у lm studio (0:13–2:00). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=SUeIsSML2UY&amp;t=13s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/SUeIsSML2UY/hqdefault.jpg" loading="lazy" width="480" height="360" alt="LM Studio: Run Local LLMs in 7 Minutes"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=SUeIsSML2UY&amp;t=13s" target="_blank" rel="noopener">LM Studio: Run Local LLMs in 7 Minutes</a></h3>
+          <p class="ch">Developers Digest</p>
+          <p class="note">Швидкий старт у LM Studio (0:13–2:00).</p>
+        </div>
+      </li>
+      <li class="card" data-s="announcing gemma 3n preview: powerful, efficient, mobile-first ai google for developers gemma 3n — модель, що працює на телефоні (3:57–5:02). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=eJFJRyXEHZ0&amp;t=237s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/eJFJRyXEHZ0/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Announcing Gemma 3n Preview: Powerful, Efficient, Mobile-First AI"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=eJFJRyXEHZ0&amp;t=237s" target="_blank" rel="noopener">Announcing Gemma 3n Preview: Powerful, Efficient, Mobile-First AI</a></h3>
+          <p class="ch">Google for Developers</p>
+          <p class="note">Gemma 3n — модель, що працює на телефоні (3:57–5:02).</p>
+        </div>
+      </li>
+      <li class="card" data-s="google&#x27;s new app lets you run ai models on your phone without the internet gary explains застосунок google, що запускає моделі на телефоні без інтернету (≈10 хв). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=Vb8L5mtjLDo" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Vb8L5mtjLDo/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Google&#x27;s New App Lets You Run AI Models on Your Phone Without The Internet"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=Vb8L5mtjLDo" target="_blank" rel="noopener">Google&#x27;s New App Lets You Run AI Models on Your Phone Without The Internet</a></h3>
+          <p class="ch">Gary Explains</p>
+          <p class="note">Застосунок Google, що запускає моделі на телефоні без інтернету (≈10 хв).</p>
+        </div>
+      </li>
+      <li class="card" data-s="chatgpt-oss is here and can run locally on your pc cnet відкрита модель openai, яку можна запустити на пк (2:49). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=uzHAUDJd7rQ" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/uzHAUDJd7rQ/hqdefault.jpg" loading="lazy" width="480" height="360" alt="ChatGPT-OSS Is Here And Can Run Locally On Your PC"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=uzHAUDJd7rQ" target="_blank" rel="noopener">ChatGPT-OSS Is Here And Can Run Locally On Your PC</a></h3>
+          <p class="ch">CNET</p>
+          <p class="note">Відкрита модель OpenAI, яку можна запустити на ПК (2:49).</p>
+        </div>
+      </li>
+      <li class="card" data-s="wwdc25: meet the foundation models framework | apple apple developer вбудована модель на пристроях apple — foundation models framework (2:05–5:20). заняття 8 локальні моделі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=mJMvFyBvZEk&amp;t=125s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/mJMvFyBvZEk/hqdefault.jpg" loading="lazy" width="480" height="360" alt="WWDC25: Meet the Foundation Models framework | Apple"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=mJMvFyBvZEk&amp;t=125s" target="_blank" rel="noopener">WWDC25: Meet the Foundation Models framework | Apple</a></h3>
+          <p class="ch">Apple Developer</p>
+          <p class="note">Вбудована модель на пристроях Apple — Foundation Models framework (2:05–5:20).</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="api">
+    <h2><a href="#api">API, REST, JSON і Postman</a> <span class="cnt">7</span></h2>
+    <p class="hint">З заняття 10 (і повторення на 13): як програма звертається до хмарної моделі — запит, відповідь, ключ.</p>
+    <ul class="grid">
+      <li class="card" data-s="що таке api? просте пояснення! про тестування українською  🍵 станіслав павлюк українською: запит, методи, відповідь і коди стану (2:00–6:15); далі — інструменти розробника браузера. заняття 10, 13 api, rest, json і postman">
+        <a class="thumb" href="https://www.youtube.com/watch?v=qJ6gkR2nx98&amp;t=120s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/qJ6gkR2nx98/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Що таке API? Просте пояснення!"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 10, 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=qJ6gkR2nx98&amp;t=120s" target="_blank" rel="noopener">Що таке API? Просте пояснення!</a></h3>
+          <p class="ch">Про тестування українською  🍵 Станіслав Павлюк</p>
+          <p class="note">Українською: запит, методи, відповідь і коди стану (2:00–6:15); далі — інструменти розробника браузера.</p>
+        </div>
+      </li>
+      <li class="card" data-s="що таке api — гайд для початківців oleh boloban українською: гайд для початківців про api (8 хв). заняття 10 api, rest, json і postman">
+        <a class="thumb" href="https://www.youtube.com/watch?v=IRCICimaQ0w" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/IRCICimaQ0w/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Що таке API — гайд для початківців"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 10</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=IRCICimaQ0w" target="_blank" rel="noopener">Що таке API — гайд для початківців</a></h3>
+          <p class="ch">Oleh Boloban</p>
+          <p class="note">Українською: гайд для початківців про API (8 хв).</p>
+        </div>
+      </li>
+      <li class="card" data-s="what is a rest api? ibm technology принципи rest api — коротко й англійською. заняття 10, 13 api, rest, json і postman">
+        <a class="thumb" href="https://www.youtube.com/watch?v=lsMQRaeKNDk" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/lsMQRaeKNDk/hqdefault.jpg" loading="lazy" width="480" height="360" alt="What is a REST API?"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 10, 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=lsMQRaeKNDk" target="_blank" rel="noopener">What is a REST API?</a></h3>
+          <p class="ch">IBM Technology</p>
+          <p class="note">Принципи REST API — коротко й англійською.</p>
+        </div>
+      </li>
+      <li class="card" data-s="що таке json - структура, синтаксис, типи даних, корисні інтсрументи для роботи світ тестування українською: синтаксис і типи даних json (0:21–2:04), далі — інструменти перегляду й порівняння json. заняття 10, 13 api, rest, json і postman">
+        <a class="thumb" href="https://www.youtube.com/watch?v=O5hq15Yjezs&amp;t=21s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/O5hq15Yjezs/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Що таке JSON - структура, синтаксис, типи даних, корисні інтсрументи для роботи"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 10, 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=O5hq15Yjezs&amp;t=21s" target="_blank" rel="noopener">Що таке JSON - структура, синтаксис, типи даних, корисні інтсрументи для роботи</a></h3>
+          <p class="ch">Світ тестування</p>
+          <p class="note">Українською: синтаксис і типи даних JSON (0:21–2:04), далі — інструменти перегляду й порівняння JSON.</p>
+        </div>
+      </li>
+      <li class="card" data-s="postman, урок 1 - основи використання девопс на дроті українською: інтерфейс postman — колекції, параметри, тіло, авторизація (7 хв). заняття 10 api, rest, json і postman">
+        <a class="thumb" href="https://www.youtube.com/watch?v=RJTqCxsRC8s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/RJTqCxsRC8s/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Postman, урок 1 - Основи використання"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 10</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=RJTqCxsRC8s" target="_blank" rel="noopener">Postman, урок 1 - Основи використання</a></h3>
+          <p class="ch">Девопс На Дроті</p>
+          <p class="note">Українською: інтерфейс Postman — колекції, параметри, тіло, авторизація (7 хв).</p>
+        </div>
+      </li>
+      <li class="card" data-s="замастерити postman для тестування rest api python decoded українською: навіщо rest api (0:47), змінні (13:16), авторизований запит у postman (15:02). заняття 10 api, rest, json і postman">
+        <a class="thumb" href="https://www.youtube.com/watch?v=S0dlZ9DLqE0&amp;t=47s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/S0dlZ9DLqE0/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Замастерити Postman Для Тестування REST API"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 10</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=S0dlZ9DLqE0&amp;t=47s" target="_blank" rel="noopener">Замастерити Postman Для Тестування REST API</a></h3>
+          <p class="ch">Python Decoded</p>
+          <p class="note">Українською: навіщо REST API (0:47), змінні (13:16), авторизований запит у Postman (15:02).</p>
+        </div>
+      </li>
+      <li class="card" data-s="48. відправляємо запити з postman попелюха 👾 тестування пз українською: як відправляти запити з postman. заняття 10 api, rest, json і postman">
+        <a class="thumb" href="https://www.youtube.com/watch?v=Qd-Tb3cJtao" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Qd-Tb3cJtao/hqdefault.jpg" loading="lazy" width="480" height="360" alt="48. Відправляємо запити з Postman"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 10</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=Qd-Tb3cJtao" target="_blank" rel="noopener">48. Відправляємо запити з Postman</a></h3>
+          <p class="ch">Попелюха 👾 Тестування ПЗ</p>
+          <p class="note">Українською: як відправляти запити з Postman.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="tokeny">
+    <h2><a href="#tokeny">Токени й контекстне вікно</a> <span class="cnt">4</span></h2>
+    <p class="hint">З заняття 11: у токенах вимірюють обсяг запиту, ліміти й вартість.</p>
+    <ul class="grid">
+      <li class="card" data-s="я нарешті розібрався, як працюють токени відчайдушний програміст українською: як текст перетворюється на токени (13:45). заняття 11 токени й контекстне вікно">
+        <a class="thumb" href="https://www.youtube.com/watch?v=W5pm-tTEgX4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/W5pm-tTEgX4/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Я нарешті розібрався, як працюють токени"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 11</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=W5pm-tTEgX4" target="_blank" rel="noopener">Я нарешті розібрався, як працюють токени</a></h3>
+          <p class="ch">Відчайдушний програміст</p>
+          <p class="note">Українською: як текст перетворюється на токени (13:45).</p>
+        </div>
+      </li>
+      <li class="card" data-s="як створюють українську llm lapa: 80 мільярдів токенів, бенчмарки й токенізація | ai house podcast ai house українською: токенізатор української моделі lapa (43:53–49:03) і «чому б просто не використати openai?» (16:50). заняття 11 токени й контекстне вікно">
+        <a class="thumb" href="https://www.youtube.com/watch?v=J0-0GHl9hog&amp;t=2633s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/J0-0GHl9hog/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Як створюють українську LLM Lapa: 80 мільярдів токенів, бенчмарки й токенізація | AI HOUSE Podcast"></a>
+        <div class="body">
+          <div class="meta"><span class="lang uk">укр.</span><span class="les">Заняття 11</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=J0-0GHl9hog&amp;t=2633s" target="_blank" rel="noopener">Як створюють українську LLM Lapa: 80 мільярдів токенів, бенчмарки й токенізація | AI HOUSE Podcast</a></h3>
+          <p class="ch">AI HOUSE</p>
+          <p class="note">Українською: токенізатор української моделі Lapa (43:53–49:03) і «Чому б просто не використати OpenAI?» (16:50).</p>
+        </div>
+      </li>
+      <li class="card" data-s="what is a context window? unlocking llm secrets ibm technology що таке контекстне вікно — бюджет, у який має вміститися весь діалог (11:30). заняття 11 токени й контекстне вікно">
+        <a class="thumb" href="https://www.youtube.com/watch?v=-QVoIxEpFkM" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/-QVoIxEpFkM/hqdefault.jpg" loading="lazy" width="480" height="360" alt="What is a Context Window? Unlocking LLM Secrets"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 11</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=-QVoIxEpFkM" target="_blank" rel="noopener">What is a Context Window? Unlocking LLM Secrets</a></h3>
+          <p class="ch">IBM Technology</p>
+          <p class="note">Що таке контекстне вікно — бюджет, у який має вміститися весь діалог (11:30).</p>
+        </div>
+      </li>
+      <li class="card" data-s="let&#x27;s build the gpt tokenizer andrej karpathy поглиблено (≈2 год): андрій карпати будує токенізатор gpt власноруч; дивитися вибірково. заняття 11 токени й контекстне вікно">
+        <a class="thumb" href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/zduSFxRajkE/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Let&#x27;s build the GPT Tokenizer"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 11</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank" rel="noopener">Let&#x27;s build the GPT Tokenizer</a></h3>
+          <p class="ch">Andrej Karpathy</p>
+          <p class="note">Поглиблено (≈2 год): Андрій Карпати будує токенізатор GPT власноруч; дивитися вибірково.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="java">
+    <h2><a href="#java">Java + ШІ</a> <span class="cnt">4</span></h2>
+    <p class="hint">З заняття 13: виклик мовної моделі з Java-програми та Spring AI.</p>
+    <ul class="grid">
+      <li class="card" data-s="send http get request using java 11 httpclient and parse json response into objects dan vega http-запит через java 11 httpclient і розбір json-відповіді в об’єкти. заняття 13 java + ші">
+        <a class="thumb" href="https://www.youtube.com/watch?v=5MmlRZZxTqk" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/5MmlRZZxTqk/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Send HTTP GET Request using Java 11 HttpClient and parse JSON response into objects"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=5MmlRZZxTqk" target="_blank" rel="noopener">Send HTTP GET Request using Java 11 HttpClient and parse JSON response into objects</a></h3>
+          <p class="ch">Dan Vega</p>
+          <p class="note">HTTP-запит через Java 11 HttpClient і розбір JSON-відповіді в об’єкти.</p>
+        </div>
+      </li>
+      <li class="card" data-s="getting started with ollama, llama 3.1 and spring ai dan vega локальна модель через ollama у java-застосунку на spring ai. заняття 13 java + ші">
+        <a class="thumb" href="https://www.youtube.com/watch?v=dffEF9ORVUg" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/dffEF9ORVUg/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Getting Started with Ollama, Llama 3.1 and Spring AI"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=dffEF9ORVUg" target="_blank" rel="noopener">Getting Started with Ollama, Llama 3.1 and Spring AI</a></h3>
+          <p class="ch">Dan Vega</p>
+          <p class="note">Локальна модель через Ollama у Java-застосунку на Spring AI.</p>
+        </div>
+      </li>
+      <li class="card" data-s="ai for java developers: full course / workshop on getting started with spring ai dan vega повний курс spring ai для java-розробників; дивитися вибірково. заняття 13 java + ші">
+        <a class="thumb" href="https://www.youtube.com/watch?v=FzLABAppJfM" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/FzLABAppJfM/hqdefault.jpg" loading="lazy" width="480" height="360" alt="AI for Java Developers: Full Course / Workshop on Getting Started with Spring AI"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=FzLABAppJfM" target="_blank" rel="noopener">AI for Java Developers: Full Course / Workshop on Getting Started with Spring AI</a></h3>
+          <p class="ch">Dan Vega</p>
+          <p class="note">Повний курс Spring AI для Java-розробників; дивитися вибірково.</p>
+        </div>
+      </li>
+      <li class="card" data-s="spring tips: spring ai springdeveloper огляд spring ai від команди spring. заняття 13 java + ші">
+        <a class="thumb" href="https://www.youtube.com/watch?v=aNKDoiOUo9M" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/aNKDoiOUo9M/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Spring Tips: Spring AI"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 13</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=aNKDoiOUo9M" target="_blank" rel="noopener">Spring Tips: Spring AI</a></h3>
+          <p class="ch">SpringDeveloper</p>
+          <p class="note">Огляд Spring AI від команди Spring.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="bezpeka">
+    <h2><a href="#bezpeka">Безпека: промпт-ін’єкції та ключі</a> <span class="cnt">3</span></h2>
+    <p class="hint">З занять 7, 9 і 11: чому модель можна обдурити текстом і як не злити ключ доступу.</p>
+    <ul class="grid">
+      <li class="card" data-s="generative ai&#x27;s greatest flaw - computerphile computerphile промпт-ін’єкція: у моделі немає надійного способу відокремити команду від даних — порівняння з sql-ін’єкцією (12 хв). заняття 9 безпека: промпт-ін’єкції та ключі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=rAEqP9VEhe8" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/rAEqP9VEhe8/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Generative AI&#x27;s Greatest Flaw - Computerphile"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 9</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=rAEqP9VEhe8" target="_blank" rel="noopener">Generative AI&#x27;s Greatest Flaw - Computerphile</a></h3>
+          <p class="ch">Computerphile</p>
+          <p class="note">Промпт-ін’єкція: у моделі немає надійного способу відокремити команду від даних — порівняння з SQL-ін’єкцією (12 хв).</p>
+        </div>
+      </li>
+      <li class="card" data-s="securing ai agents: how to prevent hidden prompt injection attacks ibm technology агент переплачує через прихований текст на сторінці — і як цьому запобігти (0:00–5:00). заняття 7 безпека: промпт-ін’єкції та ключі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=5ZA1lTxTH3c" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/5ZA1lTxTH3c/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Securing AI Agents: How to Prevent Hidden Prompt Injection Attacks"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=5ZA1lTxTH3c" target="_blank" rel="noopener">Securing AI Agents: How to Prevent Hidden Prompt Injection Attacks</a></h3>
+          <p class="ch">IBM Technology</p>
+          <p class="note">Агент переплачує через прихований текст на сторінці — і як цьому запобігти (0:00–5:00).</p>
+        </div>
+      </li>
+      <li class="card" data-s="stop leaking secrets to github | build a python git pre-commit hook (step-by-step) the devops rite pre-commit-хук на python, що перевіряє коміти й не пускає ключі в github. заняття 11 безпека: промпт-ін’єкції та ключі">
+        <a class="thumb" href="https://www.youtube.com/watch?v=R0u92KK019s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/R0u92KK019s/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Stop Leaking Secrets to GitHub | Build a Python Git Pre-Commit Hook (Step-by-Step)"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 11</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=R0u92KK019s" target="_blank" rel="noopener">Stop Leaking Secrets to GitHub | Build a Python Git Pre-Commit Hook (Step-by-Step)</a></h3>
+          <p class="ch">The DevOps Rite</p>
+          <p class="note">Pre-commit-хук на Python, що перевіряє коміти й не пускає ключі в GitHub.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <section id="promyslovist">
+    <h2><a href="#promyslovist">ШІ в промисловості та інженерії</a> <span class="cnt">9</span></h2>
+    <p class="hint">Реальні приклади з кування, штампування й автоматизації, які розбирали на заняттях 7 і 8.</p>
+    <ul class="grid">
+      <li class="card" data-s="introducing the eigen engineering agent | vasi philomin on the future of industrial ai siemens промисловий інженерний агент siemens: генерує код scl і тестову логіку, виправляє помилки компіляції (0:00–2:26). заняття 7 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=pe-MGzZYnlY" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/pe-MGzZYnlY/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Introducing the Eigen Engineering Agent | Vasi Philomin on the Future of Industrial AI"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=pe-MGzZYnlY" target="_blank" rel="noopener">Introducing the Eigen Engineering Agent | Vasi Philomin on the Future of Industrial AI</a></h3>
+          <p class="ch">Siemens</p>
+          <p class="note">Промисловий інженерний агент Siemens: генерує код SCL і тестову логіку, виправляє помилки компіляції (0:00–2:26).</p>
+        </div>
+      </li>
+      <li class="card" data-s="how siemens and microsoft bring generative ai to the shopfloor with the industrial copilot siemens knowledge hub industrial copilot — копілот, що пише й тестує код плк (6:00–8:30). заняття 7 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=CSi5BBXh8-A&amp;t=360s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/CSi5BBXh8-A/hqdefault.jpg" loading="lazy" width="480" height="360" alt="How Siemens and Microsoft bring generative AI to the shopfloor with the Industrial Copilot"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=CSi5BBXh8-A&amp;t=360s" target="_blank" rel="noopener">How Siemens and Microsoft bring generative AI to the shopfloor with the Industrial Copilot</a></h3>
+          <p class="ch">Siemens Knowledge Hub</p>
+          <p class="note">Industrial Copilot — копілот, що пише й тестує код ПЛК (6:00–8:30).</p>
+        </div>
+      </li>
+      <li class="card" data-s="siemens industrial copilot: your generative ai-powered assistant across the value chain siemens коротка версія (1:49) про siemens industrial copilot. заняття 7 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=Kpr6rDTqtE4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Kpr6rDTqtE4/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Siemens Industrial Copilot: Your generative AI-powered assistant across the value chain"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=Kpr6rDTqtE4" target="_blank" rel="noopener">Siemens Industrial Copilot: Your generative AI-powered assistant across the value chain</a></h3>
+          <p class="ch">Siemens</p>
+          <p class="note">Коротка версія (1:49) про Siemens Industrial Copilot.</p>
+        </div>
+      </li>
+      <li class="card" data-s="siemens and thyssenkrupp: advancing automation with ai-powered industrial copilot microsoft thyssenkrupp і siemens: industrial copilot у хмарній версії (0:00–2:07). заняття 8 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=Zi6I8rIdzZ4" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/Zi6I8rIdzZ4/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Siemens and thyssenkrupp: Advancing Automation with AI-Powered Industrial Copilot"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=Zi6I8rIdzZ4" target="_blank" rel="noopener">Siemens and thyssenkrupp: Advancing Automation with AI-Powered Industrial Copilot</a></h3>
+          <p class="ch">Microsoft</p>
+          <p class="note">thyssenkrupp і Siemens: Industrial Copilot у хмарній версії (0:00–2:07).</p>
+        </div>
+      </li>
+      <li class="card" data-s="meet the edge servers powering on-prem llm for industry 4.0 deployments premio inc. - rugged edge ai computing сервери для локальних моделей просто у виробництві (2:25–3:00). заняття 8 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=OnrUfmC_3uA&amp;t=145s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/OnrUfmC_3uA/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Meet the Edge Servers Powering On-Prem LLM for Industry 4.0 Deployments"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 8</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=OnrUfmC_3uA&amp;t=145s" target="_blank" rel="noopener">Meet the Edge Servers Powering On-Prem LLM for Industry 4.0 Deployments</a></h3>
+          <p class="ch">Premio Inc. - Rugged Edge AI Computing</p>
+          <p class="note">Сервери для локальних моделей просто у виробництві (2:25–3:00).</p>
+        </div>
+      </li>
+      <li class="card" data-s="visual die protection - protecting dies, preventing damage andritz schuler відеозахист штампа: класичне машинне навчання, а не мовний агент (1:19). заняття 7 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=5sF1NblPYcQ" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/5sF1NblPYcQ/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Visual Die Protection - protecting dies, preventing damage"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=5sF1NblPYcQ" target="_blank" rel="noopener">Visual Die Protection - protecting dies, preventing damage</a></h3>
+          <p class="ch">ANDRITZ Schuler</p>
+          <p class="note">Відеозахист штампа: класичне машинне навчання, а не мовний агент (1:19).</p>
+        </div>
+      </li>
+      <li class="card" data-s="alzner automotive increases efficiency with metris visual die protection andritz schuler розширена версія: результати впровадження відеозахисту штампів у alzner automotive (розділи 1:28 і 1:54). заняття 7 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=ETMo0T2pCSk&amp;t=88s" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/ETMo0T2pCSk/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Alzner Automotive increases efficiency with Metris Visual Die Protection"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=ETMo0T2pCSk&amp;t=88s" target="_blank" rel="noopener">Alzner Automotive increases efficiency with Metris Visual Die Protection</a></h3>
+          <p class="ch">ANDRITZ Schuler</p>
+          <p class="note">Розширена версія: результати впровадження відеозахисту штампів у Alzner Automotive (розділи 1:28 і 1:54).</p>
+        </div>
+      </li>
+      <li class="card" data-s="artificial intelligence eliminates pseudo-defects in the presshop, bmw group plant dingolfing bmw group bmw: контроль тріщин штампованих панелей за допомогою машинного навчання (1:20). заняття 7 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=HomqovOH0sc" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/HomqovOH0sc/hqdefault.jpg" loading="lazy" width="480" height="360" alt="Artificial Intelligence Eliminates Pseudo-Defects in the Presshop, BMW Group Plant Dingolfing"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=HomqovOH0sc" target="_blank" rel="noopener">Artificial Intelligence Eliminates Pseudo-Defects in the Presshop, BMW Group Plant Dingolfing</a></h3>
+          <p class="ch">BMW Group</p>
+          <p class="note">BMW: контроль тріщин штампованих панелей за допомогою машинного навчання (1:20).</p>
+        </div>
+      </li>
+      <li class="card" data-s="lasco umformtechnik – fully automatic hammer forging with hydraulic lasco die-forging hammer - en lasco umformtechnik gmbh роботизована кувальна лінія на гідравлічному молоті — ілюстрація до піраміди автоматизації. заняття 7 ші в промисловості та інженерії">
+        <a class="thumb" href="https://www.youtube.com/watch?v=fZjPl9n0IOs" target="_blank" rel="noopener"><img src="https://i.ytimg.com/vi/fZjPl9n0IOs/hqdefault.jpg" loading="lazy" width="480" height="360" alt="LASCO Umformtechnik – Fully automatic hammer forging with hydraulic LASCO die-forging hammer - EN"></a>
+        <div class="body">
+          <div class="meta"><span class="lang">англ.</span><span class="les">Заняття 7</span></div>
+          <h3><a href="https://www.youtube.com/watch?v=fZjPl9n0IOs" target="_blank" rel="noopener">LASCO Umformtechnik – Fully automatic hammer forging with hydraulic LASCO die-forging hammer - EN</a></h3>
+          <p class="ch">LASCO Umformtechnik GmbH</p>
+          <p class="note">Роботизована кувальна лінія на гідравлічному молоті — ілюстрація до піраміди автоматизації.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <p class="empty" id="empty">Нічого не знайдено. Спробуйте інше слово.</p>
+</main>
+<footer class="wrap">
+  Добірку зібрано з матеріалів курсу. Оновлено 8 жовтня 2026 р.
+</footer>
+<script>
+(function () {
+  var q = document.getElementById('q'), found = document.getElementById('found'), empty = document.getElementById('empty');
+  var cards = [].slice.call(document.querySelectorAll('.card')), secs = [].slice.call(document.querySelectorAll('main section'));
+  function run() {
+    var words = q.value.toLowerCase().trim().split(/\s+/).filter(Boolean), n = 0;
+    cards.forEach(function (c) {
+      var s = c.getAttribute('data-s'), ok = words.every(function (w) { return s.indexOf(w) !== -1; });
+      c.hidden = !ok; if (ok) n++;
+    });
+    secs.forEach(function (s) { s.hidden = !s.querySelector('.card:not([hidden])'); });
+    found.textContent = words.length ? 'Знайдено: ' + n : '';
+    empty.style.display = n ? 'none' : 'block';
+  }
+  q.addEventListener('input', run);
+})();
+</script>
+</body>
+</html>
