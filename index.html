@@ -3,18 +3,159 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Проєкт КМІТ</title>
+<title>ШІ-напрям КМІТ — усі посилання</title>
+<meta name="description" content="Усі посилання ШІ-напряму кафедри КМІТ НТУ «ХПІ» в одному місці: з чого почати, інструменти, напрями, публікація проєктів.">
 <style>
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #F6F5F0; color: #121826; font-family: system-ui, sans-serif; padding: 16px; }
-  main { max-width: 560px; text-align: center; }
-  h1 { font-size: 28px; }
-  p { color: #4A5263; line-height: 1.5; }
+  :root {
+    --bg: #F7F5F0; --card: #FFFFFF; --ink: #16202E; --muted: #4F5866; --line: #E3DED3;
+    --accent: #C25E00; --accent-bg: #FCEBD9; --blue: #2457C5; --blue-bg: #E6EEFB;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 40px 0 16px; }
+  .tag { display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-bg); padding: 3px 10px; border-radius: 999px; }
+  h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 12px 0 8px; }
+  .sub { color: var(--muted); margin: 0; }
+  nav { position: sticky; top: 0; z-index: 2; background: rgba(247,245,240,.95); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; scrollbar-width: none; }
+  nav a { flex: none; font-size: 14px; color: var(--ink); text-decoration: none; padding: 6px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); }
+  nav a:hover { border-color: var(--accent); }
+  section { padding: 28px 0 8px; scroll-margin-top: 56px; }
+  h2 { font-size: 24px; margin: 0 0 4px; }
+  h2 .n { color: var(--accent); margin-right: 6px; }
+  .hint { color: var(--muted); margin: 0 0 16px; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 14px 56px; position: relative; }
+  .steps li::before { content: counter(s); position: absolute; left: 16px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+  .steps b { display: block; }
+  .btn { display: inline-block; margin-top: 6px; font-size: 14px; font-weight: 600; color: var(--blue); background: var(--blue-bg); padding: 5px 12px; border-radius: 8px; text-decoration: none; }
+  .btn:hover { text-decoration: underline; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .card h3 { font-size: 17px; margin: 0; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .card .meta { font-size: 13px; color: var(--muted); }
+  .card .btn { align-self: flex-start; margin-top: auto; }
+  .tw { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 620px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: #FBFAF6; }
+  tr:last-child td { border-bottom: none; }
+  td a { color: var(--blue); }
+  .grp { font-weight: 700; background: #FBFAF6; color: var(--accent); }
+  .note { background: var(--accent-bg); border-radius: 12px; padding: 12px 16px; margin-top: 12px; font-size: 15px; }
+  .rules { padding-left: 20px; margin: 0; }
+  .rules li { margin-bottom: 6px; }
+  footer { color: var(--muted); font-size: 14px; padding: 32px 0 40px; border-top: 1px solid var(--line); margin-top: 32px; }
+  footer a { color: var(--blue); }
 </style>
 </head>
 <body>
-<main>
-  <h1>Тут буде проєкт</h1>
-  <p>Завантажте файли свого застосунку в репозиторій — і ця сторінка заміниться на нього. Інструкція — у README репозиторію.</p>
+
+<header class="wrap">
+  <span class="tag">Кафедра КМІТ НТУ «ХПІ» · 2026/2027</span>
+  <h1>ШІ-напрям КМІТ: усі посилання в одному місці</h1>
+  <p class="sub">З чого почати, якими інструментами працювати, що робити в кожному напрямі і як опублікувати свій проєкт. Керівник напряму — ст. викл. С. В. Носко.</p>
+</header>
+
+<nav aria-label="Розділи">
+  <div class="wrap">
+    <a href="#start">З чого почати</a>
+    <a href="#tools">Інструменти</a>
+    <a href="#tracks">Напрями</a>
+    <a href="#publish">Публікація</a>
+    <a href="#examples">Приклади</a>
+    <a href="#rules">Правила</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="start">
+  <h2><span class="n">1</span>З чого почати</h2>
+  <p class="hint">Займе приблизно 15 хвилин. Зробіть до першої зустрічі.</p>
+  <ol class="steps">
+    <li><b>Оформіть студентську підписку Google AI</b>Gemini, NotebookLM, створення зображень і відео.<br><a class="btn" href="https://one.google.com/ai-student?plans=1%2C2&amp;hl=uk" target="_blank" rel="noopener">Пропозиція для студентів →</a></li>
+    <li><b>Зареєструйтеся на GitHub</b>Тут зберігаються й публікуються проєкти.<br><a class="btn" href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup →</a></li>
+    <li><b>Надішліть свій нік GitHub у Telegram-групу спільноти</b>Після цього прийде запрошення в організацію кафедри <a href="https://github.com/kmit-khpi" target="_blank" rel="noopener">kmit-khpi</a>. Посилання на групу — на першій зустрічі або в керівника напряму.</li>
+    <li><b>Оберіть напрям</b>Подивіться <a href="#tracks">таблицю напрямів</a> і напишіть у групі, що хочете зробити.</li>
+  </ol>
+</section>
+
+<section id="tools">
+  <h2><span class="n">2</span>Інструменти</h2>
+  <p class="hint">Усі безкоштовні або входять у студентську підписку.</p>
+  <div class="grid">
+    <div class="card"><h3>Google AI Studio</h3><p>Застосунки, ігри й сайти за текстовим описом (режим Build).</p><span class="meta">Будь-який Google-акаунт</span><a class="btn" href="https://aistudio.google.com/apps" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Gemini</h3><p>Чат-асистент, Canvas (сторінки й міні-застосунки), створення зображень, Gems — власні помічники.</p><span class="meta">Студентська підписка Google AI</span><a class="btn" href="https://gemini.google.com/" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>NotebookLM</h3><p>Відповіді лише з ваших джерел: конспектів, статей, методичок. Аудіо- й відеоогляди.</p><span class="meta">Google-акаунт</span><a class="btn" href="https://notebooklm.google.com/" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Google Colab</h3><p>Python у браузері з вбудованим Gemini — обробка даних лабораторних і моделювання.</p><span class="meta">Google-акаунт</span><a class="btn" href="https://colab.research.google.com/" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Google Stitch</h3><p>Дизайн екранів застосунків за текстовим описом.</p><span class="meta">Google-акаунт</span><a class="btn" href="https://stitch.withgoogle.com/" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Flow (Veo)</h3><p>Генерування коротких відео. У студентській підписці — з лімітом.</p><span class="meta">Студентська підписка Google AI</span><a class="btn" href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>GitHub Copilot Student</h3><p>ШІ-помічник у редакторі коду. Потрібна верифікація студентського статусу (від кількох годин до кількох днів).</p><span class="meta">Безкоштовно для студентів</span><a class="btn" href="https://github.com/settings/education/benefits" target="_blank" rel="noopener">Подати заявку →</a> <a class="btn" href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students" target="_blank" rel="noopener">Інструкція GitHub →</a></div>
+    <div class="card"><h3>Visual Studio Code</h3><p>Редактор коду, у якому працює Copilot. Для напрямів 5–7.</p><span class="meta">Безкоштовно</span><a class="btn" href="https://code.visualstudio.com/" target="_blank" rel="noopener">Завантажити →</a></div>
+  </div>
+</section>
+
+<section id="tracks">
+  <h2><span class="n">3</span>Сім напрямів</h2>
+  <p class="hint">Перше завдання — на 1–2 години. До грудня — один завершений проєкт, що відкривається за посиланням.</p>
+  <div class="tw">
+  <table>
+    <tr><th style="width:20%">Напрям</th><th style="width:40%">Перше завдання</th><th style="width:40%">Інструменти</th></tr>
+    <tr><td colspan="3" class="grp">Код знати не потрібно</td></tr>
+    <tr><td><b>1. Застосунки</b></td><td>Вікторина «Вгадай процес» на 5 запитань з поясненнями</td><td><a href="https://aistudio.google.com/apps" target="_blank" rel="noopener">Google AI Studio</a>, <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini Canvas</a></td></tr>
+    <tr><td><b>2. ШІ-дизайн</b></td><td>5 стікерів КМІТ для Telegram</td><td><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> (зображення), <a href="https://stitch.withgoogle.com/" target="_blank" rel="noopener">Stitch</a>, бот <a href="https://t.me/Stickers" target="_blank" rel="noopener">@Stickers</a></td></tr>
+    <tr><td><b>3. ШІ-медіа</b></td><td>Ролик на 30 секунд «Як виготовляють алюмінієву банку»</td><td><a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> (сценарій), <a href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLM</a>, <a href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener">Flow</a></td></tr>
+    <tr><td><b>4. Асистенти</b></td><td>Gem «Помічник з дисципліни» на основі вашого конспекту</td><td><a href="https://gemini.google.com/gems/view" target="_blank" rel="noopener">Gemini Gems</a>, <a href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLM</a></td></tr>
+    <tr><td colspan="3" class="grp">Доведеться розбиратися в коді</td></tr>
+    <tr><td><b>5. Інженерний ШІ</b></td><td>Завантажити дані лабораторної в Colab, побудувати графіки, перевірити висновок з викладачем</td><td><a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab</a> + Gemini</td></tr>
+    <tr><td><b>6. Telegram-боти</b></td><td>Бот з відповідями на 10 найчастіших запитань першокурсника</td><td><a href="https://t.me/BotFather" target="_blank" rel="noopener">@BotFather</a>, <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a>, <a href="https://script.google.com/" target="_blank" rel="noopener">Google Apps Script</a></td></tr>
+    <tr><td><b>7. Press AI</b></td><td>Командний проєкт з керівником: тестування, промпти, база знань, код</td><td><a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noopener">AWS, Amazon Bedrock</a> — доступ через керівника</td></tr>
+  </table>
+  </div>
+</section>
+
+<section id="publish">
+  <h2><span class="n">4</span>Як опублікувати проєкт</h2>
+  <p class="hint">Проєкт готовий, коли він відкривається в іншої людини за посиланням.</p>
+  <div class="grid">
+    <div class="card"><h3>Найшвидше</h3><p>В AI Studio кнопка <b>Share</b> або <b>Publish</b>; у Gemini — <b>Поділитися</b>. Посилання працює одразу.</p></div>
+    <div class="card"><h3>На GitHub кафедри</h3><p>Керівник створює вам репозиторій. Ви завантажуєте туди файли — сайт з’являється за адресою <b>kmit-khpi.github.io/назва-проєкту</b>.</p><a class="btn" href="https://github.com/kmit-khpi/.github/blob/main/%D0%86%D0%9D%D0%A1%D0%A2%D0%A0%D0%A3%D0%9A%D0%A6%D0%86%D0%AF.md" target="_blank" rel="noopener">Покрокова інструкція →</a></div>
+    <div class="card"><h3>Telegram-бот</h3><p>Код пише Gemini, запуск — у Google Apps Script. Токен бота нікуди не викладаємо.</p><a class="btn" href="https://script.google.com/" target="_blank" rel="noopener">Apps Script →</a></div>
+  </div>
+  <p class="note"><b>Важливо:</b> API-ключі й токени не викладаємо у відкритий код. Платні сервіси (наприклад, розгортання з прив’язаною карткою) не використовуємо.</p>
+</section>
+
+<section id="examples">
+  <h2><span class="n">5</span>Приклади</h2>
+  <p class="hint">Готові роботи, які можна відкрити й розібрати.</p>
+  <div class="grid" id="examples-grid">
+    <div class="card"><h3>Стікери спільноти КМІТ</h3><p>8 стікерів для Telegram, PNG 512×512. Створено ШІ (Claude) за текстовим описом.</p><span class="meta">Напрям 2 · ШІ-дизайн</span><a class="btn" href="https://kmit-khpi.github.io/design-stickers/" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Research Visualization</h3><p>Застосунок з галереї AI Studio: наукова стаття, перетворена на інтерактивний сайт. Кнопка Remix — і це ваша копія.</p><span class="meta">Напрям 1 · галерея Google AI Studio</span><a class="btn" href="https://aistudio.google.com/apps/bundled/research_visualization?showPreview=true" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Галерея AI Studio</h3><p>Сотні готових застосунків, які можна скопіювати й переробити. Частина з них вимагає платного ключа — перевіряйте.</p><span class="meta">Напрям 1</span><a class="btn" href="https://aistudio.google.com/apps?source=showcase" target="_blank" rel="noopener">Відкрити →</a></div>
+  </div>
+  <p class="hint" style="margin-top:12px">Усі проєкти учасників: <a href="https://github.com/kmit-khpi" target="_blank" rel="noopener">github.com/kmit-khpi</a></p>
+</section>
+
+<section id="rules">
+  <h2><span class="n">6</span>Три правила</h2>
+  <ol class="rules">
+    <li><b>ШІ помиляється</b> — перевіряйте кожен результат, особливо факти й інженерні розрахунки.</li>
+    <li><b>Жодних паролів, ключів доступу і персональних даних</b> у відкритому доступі.</li>
+    <li><b>Чесність:</b> в описі проєкту вказуйте, з якими інструментами ШІ його зроблено.</li>
+  </ol>
+</section>
+
 </main>
+
+<footer class="wrap">
+  ШІ-напрям кафедри КМІТ НТУ «ХПІ» · керівник ст. викл. С. В. Носко ·
+  <a href="https://web.kpi.kharkov.ua/kmit/" target="_blank" rel="noopener">сайт кафедри</a> ·
+  корпус У1, 13-й поверх, ауд. 1301<br>
+  Оновлено 8 жовтня 2026 р.
+</footer>
+
 </body>
 </html>
