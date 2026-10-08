@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ШІ-напрям КМІТ — усі посилання</title>
-<meta name="description" content="Усі посилання ШІ-напряму кафедри КМІТ НТУ «ХПІ» в одному місці: з чого почати, інструменти, напрями, публікація проєктів.">
+<title>ШІ-лабораторія КМІТ — усі посилання</title>
+<link rel="icon" href="logo.png">
+<meta name="description" content="Усі посилання ШІ-лабораторії кафедри КМІТ НТУ «ХПІ» в одному місці: з чого почати, інструменти, напрями, публікація проєктів.">
 <style>
   :root {
     --bg: #F7F5F0; --card: #FFFFFF; --ink: #16202E; --muted: #4F5866; --line: #E3DED3;
@@ -54,9 +55,10 @@
 <body>
 
 <header class="wrap">
+  <img src="logo.png" alt="Логотип ШІ-лабораторії КМІТ" width="72" height="72" style="border-radius:50%;display:block;margin-bottom:12px">
   <span class="tag">Кафедра КМІТ НТУ «ХПІ» · 2026/2027</span>
-  <h1>ШІ-напрям КМІТ: усі посилання в одному місці</h1>
-  <p class="sub">З чого почати, якими інструментами працювати, що робити в кожному напрямі і як опублікувати свій проєкт. Керівник напряму — ст. викл. С. В. Носко.</p>
+  <h1>ШІ-лабораторія КМІТ: усі посилання в одному місці</h1>
+  <p class="sub">З чого почати, якими інструментами працювати, що робити в кожному напрямі і як опублікувати свій проєкт. Керівник лабораторії — ст. викл. С. В. Носко.</p>
 </header>
 
 <nav aria-label="Розділи">
@@ -67,6 +69,7 @@
     <a href="#publish">Публікація</a>
     <a href="#examples">Приклади</a>
     <a href="#rules">Правила</a>
+    <a href="video/">Відео ↗</a>
   </div>
 </nav>
 
@@ -78,7 +81,7 @@
   <ol class="steps">
     <li><b>Оформіть студентську підписку Google AI</b>Gemini, NotebookLM, створення зображень і відео.<br><a class="btn" href="https://one.google.com/ai-student?plans=1%2C2&amp;hl=uk" target="_blank" rel="noopener">Пропозиція для студентів →</a></li>
     <li><b>Зареєструйтеся на GitHub</b>Тут зберігаються й публікуються проєкти.<br><a class="btn" href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup →</a></li>
-    <li><b>Надішліть свій нік GitHub у Telegram-групу спільноти</b>Після цього прийде запрошення в організацію кафедри <a href="https://github.com/kmit-khpi" target="_blank" rel="noopener">kmit-khpi</a>. Посилання на групу — на першій зустрічі або в керівника напряму.</li>
+    <li><b>Вступіть у Telegram-групу й надішліть свій нік GitHub</b>Після цього прийде запрошення в організацію кафедри <a href="https://github.com/kmit-khpi" target="_blank" rel="noopener">kmit-khpi</a>.<br><a class="btn" href="https://t.me/+h2Aua1Vtg3M4OTEy" target="_blank" rel="noopener">Telegram-група «ШІ-лабораторія КМІТ» →</a></li>
     <li><b>Оберіть напрям</b>Подивіться <a href="#tracks">таблицю напрямів</a> і напишіть у групі, що хочете зробити.</li>
   </ol>
 </section>
@@ -128,19 +131,25 @@
   <p class="note"><b>Важливо:</b> API-ключі й токени не викладаємо у відкритий код. Платні сервіси (наприклад, розгортання з прив’язаною карткою) не використовуємо.</p>
 </section>
 
+<section id="video">
+  <h2><span class="n">5</span>Відео</h2>
+  <p class="hint">60 відео з курсу «Креативні технології в інженерії»: як влаштовані мовні моделі, агенти, локальні моделі, API, токени, безпека, ШІ в промисловості.</p>
+  <a class="btn" href="video/">Усі відео за темами →</a>
+</section>
+
 <section id="examples">
-  <h2><span class="n">5</span>Приклади</h2>
+  <h2><span class="n">6</span>Приклади</h2>
   <p class="hint">Готові роботи, які можна відкрити й розібрати.</p>
   <div class="grid" id="examples-grid">
     <div class="card"><h3>Стікери спільноти КМІТ</h3><p>8 стікерів для Telegram, PNG 512×512. Створено ШІ (Claude) за текстовим описом.</p><span class="meta">Напрям 2 · ШІ-дизайн</span><a class="btn" href="https://kmit-khpi.github.io/design-stickers/" target="_blank" rel="noopener">Відкрити →</a></div>
-    <div class="card"><h3>Research Visualization</h3><p>Застосунок з галереї AI Studio: наукова стаття, перетворена на інтерактивний сайт. Кнопка Remix — і це ваша копія.</p><span class="meta">Напрям 1 · галерея Google AI Studio</span><a class="btn" href="https://aistudio.google.com/apps/bundled/research_visualization?showPreview=true" target="_blank" rel="noopener">Відкрити →</a></div>
-    <div class="card"><h3>Галерея AI Studio</h3><p>Сотні готових застосунків, які можна скопіювати й переробити. Частина з них вимагає платного ключа — перевіряйте.</p><span class="meta">Напрям 1</span><a class="btn" href="https://aistudio.google.com/apps?source=showcase" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Конструктор заготовки</h3><p>Ковпак мотора квадрокоптера: розрахунок заготовки для витягування, 3D-модель і креслення. Згенеровано в Google AI Studio.</p><span class="meta">Напрями 1 і 5</span><a class="btn" href="https://kmit-khpi.github.io/blank-calculator/" target="_blank" rel="noopener">Відкрити →</a></div>
+    <div class="card"><h3>Мерч і обкладинки</h3><p>Чашка, футболка й обкладинка для Reels/TikTok з символікою КМІТ — з промптами, які можна скопіювати.</p><span class="meta">Напрям 2 · Gemini</span><a class="btn" href="https://kmit-khpi.github.io/design-merch/" target="_blank" rel="noopener">Відкрити →</a></div>
   </div>
   <p class="hint" style="margin-top:12px">Усі проєкти учасників: <a href="https://github.com/kmit-khpi" target="_blank" rel="noopener">github.com/kmit-khpi</a></p>
 </section>
 
 <section id="rules">
-  <h2><span class="n">6</span>Три правила</h2>
+  <h2><span class="n">7</span>Три правила</h2>
   <ol class="rules">
     <li><b>ШІ помиляється</b> — перевіряйте кожен результат, особливо факти й інженерні розрахунки.</li>
     <li><b>Жодних паролів, ключів доступу і персональних даних</b> у відкритому доступі.</li>
@@ -151,7 +160,7 @@
 </main>
 
 <footer class="wrap">
-  ШІ-напрям кафедри КМІТ НТУ «ХПІ» · керівник ст. викл. С. В. Носко ·
+  ШІ-лабораторія КМІТ НТУ «ХПІ» · керівник ст. викл. С. В. Носко ·
   <a href="https://web.kpi.kharkov.ua/kmit/" target="_blank" rel="noopener">сайт кафедри</a> ·
   корпус У1, 13-й поверх, ауд. 1301<br>
   Оновлено 8 жовтня 2026 р.
